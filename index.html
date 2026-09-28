@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil Diri - Ririn Rianti</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fffafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            color: #c77989;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #c77989;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .photo-container {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 25px;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #f3dce1;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 5px;
+        }
+
+        .status {
+            color: #c77989;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            max-width: 550px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            background: #c77989;
+            color: white;
+            padding: 11px 25px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #ad6576;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .hobbies-section {
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 45px;
+            height: 3px;
+            background: #c77989;
+            margin: 10px auto 0;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-card {
+            background: white;
+            border: 1px solid #eeeeee;
+            border-radius: 15px;
+            padding: 35px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .biodata {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .data {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .data span {
+            color: #888;
+        }
+
+        .data strong {
+            color: #444;
+            text-align: right;
+        }
+
+        .description h3 {
+            margin-bottom: 15px;
+            color: #c77989;
+        }
+
+        .description p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           HOBBIES
+        ========================= */
+
+        .hobbies {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .hobby-card {
+            background: #fffafa;
+            border: 1px solid #eeeeee;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            border-color: #e3b4be;
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .hobby-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .hobby-card p {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           ANIMASI
+        ========================= */
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease,
+                        transform 0.7s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .nav-content {
+                flex-direction: column;
+                padding: 15px 0;
+                gap: 10px;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .about-card {
+                grid-template-columns: 1fr;
+                padding: 25px;
+                gap: 30px;
+            }
+
+            .hobbies {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+        <div class="container nav-content">
+
+            <h1 class="logo">Ririn.</h1>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#hobbies">Hobbies</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section id="home" class="hero">
+
+        <div class="container hero-content">
+
+            <!-- FOTO -->
+            <div class="photo-container">
+                <img src="foto.jpg" alt="Foto Ririn Rianti">
+            </div>
+
+            <h2>Ririn Rianti</h2>
+
+            <p class="status">Student</p>
+
+            <p class="intro">
+                Halo! Saya Ririn. Ini adalah website sederhana
+                yang berisi profil dan sedikit informasi tentang diri saya.
+            </p>
+
+            <a href="#about" class="button">
+                Lihat Profil
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT ME
+    ========================== -->
+
+    <section id="about" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                About Me
+            </h2>
+
+            <div class="about-card">
+
+                <!-- BIODATA -->
+
+                <div class="biodata">
+
+                    <div class="data">
+                        <span>Nama</span>
+                        <strong>Ririn Rianti</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Sekolah</span>
+                        <strong>SMAN 17 Bandung</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Kelas</span>
+                        <strong>XI</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Domisili</span>
+                        <strong>Bandung</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Hobi</span>
+                        <strong>Memasak</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Cita-cita</span>
+                        <strong>Terus berkembang</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- DESKRIPSI -->
+
+                <div class="description">
+
+                    <h3>Tentang Saya</h3>
+
+                    <p>
+                        Saya adalah seorang pelajar yang senang
+                        mempelajari hal-hal baru dan terus
+                        mengembangkan diri.
+                    </p>
+
+                    <p>
+                        Saya juga memiliki beberapa hobi yang saya
+                        sukai, salah satunya adalah memasak.
+                    </p>
+
+                    <p>
+                        Saya percaya bahwa setiap pengalaman dapat
+                        menjadi bagian dari proses untuk menjadi
+                        pribadi yang lebih baik.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOBBIES
+    ========================== -->
+
+    <section id="hobbies" class="section hobbies-section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                My Hobbies
+            </h2>
+
+            <div class="hobbies">
+
+                <div class="hobby-card">
+
+                    <div class="icon">🍳</div>
+
+                    <h3>Cooking</h3>
+
+                    <p>
+                        Saya suka mencoba dan membuat
+                        berbagai makanan.
+                    </p>
+
+                </div>
+
+
+                <div class="hobby-card">
+
+                    <div class="icon">🎧</div>
+
+                    <h3>Listening Music</h3>
+
+                    <p>
+                        Mendengarkan musik menjadi salah satu
+                        kegiatan yang saya nikmati.
+                    </p>
+
+                </div>
+
+
+                <div class="hobby-card">
+
+                    <div class="icon">📚</div>
+
+                    <h3>Reading</h3>
+
+                    <p>
+                        Membaca membantu saya mendapatkan
+                        informasi dan pengalaman baru.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © <span id="year"></span> Ririn Rianti
+        </p>
+
+        <p>
+            Thank you for visiting my profile 🤍
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        // Tahun otomatis
+        const year = document.getElementById("year");
+
+        year.textContent = new Date().getFullYear();
+
+
+        // Animasi ketika section muncul
+        const cards = document.querySelectorAll(
+            ".about-card, .hobby-card"
+        );
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+        cards.forEach((card) => {
+
+            card.classList.add("hidden");
+
+            observer.observe(card);
+
+        });
+
+    </script>
+
+</body>
+</html>
+
+
